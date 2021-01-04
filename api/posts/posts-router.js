@@ -38,19 +38,15 @@ router.put("/:id", (req, res) => {
           res.json(updatedPost);
         });
       } else {
-        res
-          .status(404)
-          .json({
-            message: "Error - Could not update the post, Please try again.",
-          });
+        res.status(404).json({
+          message: "Error - Could not update the post, Please try again.",
+        });
       }
     })
     .catch((err) => {
-      res
-        .status(500)
-        .json({
-          message: "Error - Could not update the post. Please try again.",
-        });
+      res.status(500).json({
+        message: "Error - Could not update the post. Please try again.",
+      });
       console.log(err);
     });
 });
