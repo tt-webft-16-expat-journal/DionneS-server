@@ -1,6 +1,6 @@
 # Expat Journal
 
-## Back-End url https://expat-16.herokuapp.com/
+## Back-End url https://expat-16.herokuapp.com
 
 ### Users
 
@@ -27,15 +27,15 @@
 
 | Method | Endpoint         | Token Required | Description                                                                                                       |     |
 | ------ | ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------------- | --- |
-| POST   | `api/auth/register` | no             | Registers a new user <br> Required: email, username, and password. <br>Returns .... |
-| POST   | `api/auth/login`    | no             | Signs in user and returns a token.<br> Required: username and password.              |
+| POST   | `/api/auth/register` | no             | Registers a new user <br> Required: email, username, and password. <br>Returns .... |
+| POST   | `/api/auth/login`    | no             | Signs in user and returns a token.<br> Required: username and password.              |
 
 ### Posts Routes
 
 | Method | Endpoint           | Token Required | Description                   |
 | ------ | ------------------ | -------------- | ----------------------------- |
-| GET    | `api/posts`        | yes            | Returns all posts             |
-| GET    | `api/posts/:id`    | yes            | Returns a single post by id   |
-| POST   | `api/posts`        | yes            | Returns newly added post      |
-| PUT    | `api/posts/:id`    | yes            | Returns newly updated post    |
-| DELETE | `api/posts/:id`    | yes            | Deletes a single post         |
+| GET    | `/api/posts`        | yes            | Returns all posts             |
+| GET    | `/api/posts/:id`    | yes            | Returns a single post by id   |
+| POST   | `/api/posts`        | yes            | Returns newly added post      |
+| PUT    | `/api/posts/:id`    | yes            | Returns newly updated post    |
+| DELETE | `/api/posts/:id`    | yes            | Deletes a single post         |
