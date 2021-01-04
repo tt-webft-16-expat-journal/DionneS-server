@@ -10,11 +10,10 @@ exports.up = function (knex) {
       tbl.increments();
       tbl.string("title", 128).notNullable().unique();
       tbl.string("story", 128);
-      tbl.string("image_url", 128).notNullable();
+      tbl.string("image_url", 888).notNullable();
       tbl
         .integer("user_id")
         .unsigned()
-        .notNullable()
         .references("id")
         .inTable("users")
         .onDelete("CASCADE")
