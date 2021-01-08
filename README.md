@@ -26,7 +26,7 @@
 ### Authentication Routes
 
 | Method | Endpoint         | Token Required | Description                                                                                                       |     |
-| ------ | ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------------- | --- |
+| ------ | ----------   ------ | -------------- | ----------------------------------------------------------------------------------------------------------------- | --- |
 | POST   | `/api/auth/register` | no             | Registers a new user <br> Required: email, username, and password. <br>Returns .... |
 | POST   | `/api/auth/login`    | no             | Signs in user and returns a token.<br> Required: username and password.              |
 

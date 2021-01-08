@@ -1,33 +1,27 @@
-const db = require("../../data/dbConfig.js");
+const db = require("../data/db-config.js");
 
 module.exports = {
-  insert,
-  update,
-  remove,
-  getAll,
-  getById,
+  getAllPosts() {
+    return db("posts");
+  },
+
+  findById(id) {
+    return db("posts").where({ id: id }).first();
+  },
+
+  addPost(post) {
+    return db("posts")
+      .insert(post)
+      .then((id) => {
+        return db("posts").where({ id: id }).first();
+      });
+  },
+
+  update(id, updates) {
+    return db("posts").where({ id }).update(updates);
+  },
+
+  removePost(id) {
+    return db("posts").where({ id: id }).delete();
+  },
 };
-
-function getAll() {
-  return db("posts");
-}
-
-function getById(id) {
-  return db("posts").where("id", id).first();
-}
-
-async function insert(post) {
-  const [id] = await db("posts").insert(post);
-  return db("posts").where({ id }).first();
-}
-
-async function update(id, changes) {
-  return db("posts")
-    .where("id", id)
-    .update(changes)
-    .then((count) => (count > 0 ? getAll(id) : null));
-}
-
-function remove(id) {
-  return db("posts").where("id", id).del();
-}

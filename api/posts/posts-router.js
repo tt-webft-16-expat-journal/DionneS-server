@@ -3,7 +3,7 @@ const Posts = require("./posts-model.js");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  Posts.getAll()
+  Posts.getAllPosts()
     .then((post) => {
       res.status(200).json(post);
     })
@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  Posts.getById(id)
+  Posts.findById(id)
     .then((post) => {
       res.status(200).json(post);
     })
@@ -39,14 +39,16 @@ router.put("/:id", (req, res) => {
         });
       } else {
         res.status(404).json({
-          message: "Error - Could not update the post, Please try again.",
+          message: `Post with id ${id} not found`,
         });
       }
     })
     .catch((err) => {
-      res.status(500).json({
-        message: "Error - Could not update the post. Please try again.",
-      });
+      res
+        .status(500)
+        .json({
+          message: "Could not update the post. Please try again.",
+        });
       console.log(err);
     });
 });
@@ -54,8 +56,8 @@ router.put("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
   if (req.body === {}) {
-    res.status(500).json({
-      message: "No post with that ID",
+    res.status(404).json({
+      message: "Post id needed",
     });
   } else {
     Posts.removePost(id)
